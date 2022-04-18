@@ -2,6 +2,9 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
+import Author from './author';
+import Publisher from './publisher';
+import Book from './book';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default ({ match }) => {
@@ -9,6 +12,9 @@ export default ({ match }) => {
     <div>
       <Switch>
         {/* prettier-ignore */}
+        <ErrorBoundaryRoute path={`${match.url}author`} component={Author} />
+        <ErrorBoundaryRoute path={`${match.url}publisher`} component={Publisher} />
+        <ErrorBoundaryRoute path={`${match.url}book`} component={Book} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </Switch>
     </div>

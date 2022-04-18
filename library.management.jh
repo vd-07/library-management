@@ -1,0 +1,28 @@
+entity Author {
+	name String required
+}
+
+entity Publisher {
+	name String required
+}
+
+entity Book {
+	title String required
+    isbn String required    
+}
+
+
+// defining multiple OneToMany relationships
+relationship OneToMany {
+    Author{books} to Book{author(name)}
+    Publisher{books} to Book{publisher(name)}
+    Publisher{authors} to Author{publisher(name)}
+}
+
+
+// Set pagination options
+paginate Author, Publisher, Book with pagination
+
+
+// Set service options to all
+service all with serviceImpl
